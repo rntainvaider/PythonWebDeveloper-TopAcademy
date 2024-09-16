@@ -1,10 +1,10 @@
-from Controller.controller import ShoeController
+from Model.model import ShoeModel
 
 class ShoeView:
-    def shoe_details(self, shoe):
-        print(f"Тип обуви {shoe.type}")
-        print(f"Вип обуви {shoe.view}")
-        print(f"Цвет {shoe.color}")
-        print(f"Цена {shoe.price}")
-        print(f"Производитель {shoe.manufacturer}")
-        print(f"Размер {shoe.size}")
+    @staticmethod
+    def display_shoe_info(shoe: ShoeModel):
+        print(shoe.get_info())
+
+    @staticmethod
+    def display_update_success():
+        print("Цена успешно обновлена.")
