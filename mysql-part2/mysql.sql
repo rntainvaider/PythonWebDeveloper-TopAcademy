@@ -49,17 +49,28 @@ FROM vegetables_and_fruits
 GROUP BY color;
 
 -- Показать цвет с минимальным количеством овощей и фруктов;
-
+SELECT color, COUNT(*) AS количество
+FROM vegetables_and_fruits
+GROUP BY color
+ORDER BY количество LIMIT 1;
 
 -- Показать цвет с максимальным количеством овощей и фруктов;
-
+SELECT color
+, COUNT
+(*)AS количество
+FROM vegetables_and_fruits
+GROUP BY color
+ORDER BY количество DESC LIMIT 1;
 
 -- Показать минимальную калорийность овощей и фруктов;
 SELECT *
 FROM vegetables_and_fruits
-WHERE calories = (SELECT MIN(calories)
+WHERE calories =
+(SELECT MIN(calories)
     FROM vegetables_and_fruits
-    WHERE type = 'фрукт') OR calories = (SELECT MIN(calories)
+    WHERE type = 'фрукт')
+    OR calories =
+(SELECT MIN(calories)
     FROM vegetables_and_fruits
     WHERE type = 'овощ');
 
