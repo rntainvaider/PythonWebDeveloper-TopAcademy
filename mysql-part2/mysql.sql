@@ -55,9 +55,7 @@ GROUP BY color
 ORDER BY количество LIMIT 1;
 
 -- Показать цвет с максимальным количеством овощей и фруктов;
-SELECT color
-, COUNT
-(*)AS количество
+SELECT color, COUNT(*)AS количество
 FROM vegetables_and_fruits
 GROUP BY color
 ORDER BY количество DESC LIMIT 1;
